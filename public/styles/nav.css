@@ -1,0 +1,19 @@
+nav {
+  background-color: rgb(79, 161, 79);
+  height: 120px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-family: "Bungee";
+  font-size: x-large;
+  color: #FFFFFF;
+  padding-left: 1.5em;
+}
+
+.container {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}

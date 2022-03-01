@@ -1,0 +1,21 @@
+section {
+
+}
+
+#tweet-text {
+  width: 500px;
+  border-bottom: #545149;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  background-color: rgb(79, 161, 79);
+  width: 150px;
+  height: 80px;
+  color: #FFFFFF;
+  font-size: larger;
+}
