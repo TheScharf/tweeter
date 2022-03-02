@@ -1,10 +1,13 @@
-section {
+/* section {
 
-}
+} */
 
 #tweet-text {
   width: 500px;
-  border-bottom: #545149;
+  background: transparent;
+  border: none;
+  border-bottom: solid black;
+  outline: none;
 }
 
 .button-container {
@@ -18,4 +21,9 @@ button {
   height: 80px;
   color: #FFFFFF;
   font-size: larger;
+  font-family: "Bungee", sans-serif;
+}
+
+.negative-counter {
+  color: red;
 }

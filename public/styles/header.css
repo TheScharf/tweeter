@@ -1,9 +1,11 @@
 header {
-  height: 400px;
+  height: auto;
   width: 100%;
+  padding: 1.5em;
+  padding-top: 10em;
   display:flex;
   flex-direction: column;
-  justify-content: center;
+  /*justify-content: center;*/
   align-items: center;
   background-color: burlywood;
   background-image: url("https://www.transparenttextures.com/patterns/black-thread-light.png");
