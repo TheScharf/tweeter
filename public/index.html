@@ -23,6 +23,7 @@
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
   </head>
 
   <body>
@@ -32,6 +33,7 @@
       <span>TWEETER</span>
       <div class="container">
       <span>Write a new tweet</span>
+      <br>
       <i class="fa-solid fa-angles-down"></i>
     </div>
     </nav>
@@ -50,16 +52,20 @@
     <!-- Page-specific (main) content here -->
     <main class="main-container">
       <section class="new-tweet">
+        <div id="error" class="error">
+          <h3>Exceeded 140 character limit</h3>
+        </div>
         <h2>Tweet Your Thoughts</h2>
-        <form action="/tweets/" method="POST">
+        <form action="/tweets/" method="POST" id="new-tweet-form">
           <label for="tweet-text"></label>
           <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
           <div class="button-container">
             <button type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
+            <output id="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
       </section>
+      <section id="the-tweets"></section>
     </main>
   </body>
 
