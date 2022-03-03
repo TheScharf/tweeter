@@ -5,44 +5,49 @@
  */
 $(document).ready(function() {
   const error = $("#error");
-  error.hide();
+  //error.hide();
   const newTweetForm = $("#new-tweet-form");
+
+  $.ajax({
+    type: 'GET',
+    url: '/tweets',
+  })
+  .then(function(data) {
+    renderTweets(data);
+  })
+  .catch(function(error) {
+    colsole.log("ERROR", error)
+  })
   
   newTweetForm.on("submit", function(event) {
     event.preventDefault();
-    console.log("inside tweet form");
+    const serializedForm = $(this).serialize();
     const MAX_TWEET_LENGTH = 140;
     const textLength = $("#tweet-text").val().length;
     if (textLength > MAX_TWEET_LENGTH) {
-      console.log("max", MAX_TWEET_LENGTH);
-      error.show();
+      return $(".error-message").html('Exceeded number of characters');
     }
+    if (!textLength) {
+      return $(".error-message").html('Please enter a tweet before submitting');     
+    }
+      $.ajax({
+        type: 'POST',
+        url: '/tweets',
+        data: serializedForm
+      })
+      .then(function(data) {
+        loadTweets();
+      })
+      .catch(function(error) {
+
+        //console.log("ERROR", error);
+      })
+
+ 
+
   })
 
 
-  const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
-        "handle": "@SirIsaac"
-      },
-    "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
 
   const createTweetElement = function(tweetObj) {
     const timeSince = timeago.format(tweetObj.created_at)
@@ -50,7 +55,7 @@ $(document).ready(function() {
     <article id="the-tweets" class="tweets-container">
             <div class="article-header">
               <span>
-                <i class="fa-solid fa-bug"></i>
+                <img src= ${tweetObj.user.avatars}>
                 ${tweetObj.user.name}
               </span>
               <span>${tweetObj.user.handle}</span>
@@ -77,7 +82,22 @@ $(document).ready(function() {
     for (const tweet of tweets) {
       let element = createTweetElement(tweet);
       container.prepend(element);
+      
     }
+    
+  };
+
+  const loadTweets = function() {
+    $.ajax({
+      type: 'GET',
+      url: '/tweets',
+    })
+    .then(function(data) {
+      renderTweets(data);
+    })
+    .catch(function(error) {
+      colsole.log("ERROR", error)
+    })
   };
 
   renderTweets(data);

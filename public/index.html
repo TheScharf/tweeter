@@ -54,10 +54,10 @@
     <main class="main-container">
       <section class="new-tweet">
           <div id="error" class="error">
-            <h3>Exceeded 140 character limit</h3>
+            <h3 class="error-message" ></h3>
           </div>
           <h2>Tweet Your Thoughts</h2>
-          <form action="/tweets/" method="POST" id="new-tweet-form">
+          <form action="/tweets" method="POST" id="new-tweet-form">
             <label for="tweet-text"></label>
             <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
             <div class="button-container">
@@ -67,27 +67,6 @@
           </form>
       </section>
       <section id="tweets" class="tweets">
-        <!-- <article id="the-tweets" class="tweets-container">
-            <div class="article-header">
-              <span>
-                <i class="fa-solid fa-bug"></i>
-                Lady Bug
-              </span>
-              <span>@TheLadyBug</span>
-            </div>
-            <span class="tweet_body">
-             This is the tweet from another user displayed in the tweet container!
-            </span>
-            <hr class="footer_break"/>
-            <footer class="article-footer">
-              <span>10 days ago</span>
-              <span class="icons">
-                <i class="fa-solid fa-font-awesome"></i>
-                <i class="fa-solid fa-retweet"></i>
-                <i class="fa-solid fa-heart"></i>
-              </span>
-            </footer>
-        </article> -->
       </section>
     </main>
   </body>
