@@ -37,11 +37,13 @@ $(document).ready(function() {
       })
       .then(function(data) {
         loadTweets();
-      })
-      .catch(function(error) {
+      });
+      $("#tweet-text").val("");
+      $(".counter").html("140");
+      // .catch(function(error) {
 
-        //console.log("ERROR", error);
-      })
+      //   //console.log("ERROR", error);
+      // })
 
  
 
@@ -50,7 +52,9 @@ $(document).ready(function() {
 
 
   const createTweetElement = function(tweetObj) {
-    const timeSince = timeago.format(tweetObj.created_at)
+    const timeSince = timeago.format(tweetObj.created_at);
+    const textFromUser = tweetObj.content.text;
+    const safeHTML = `<p>${escape(textFromUser)}</p>`;
     const $markup = `
     <article id="the-tweets" class="tweets-container">
             <div class="article-header">
@@ -61,7 +65,7 @@ $(document).ready(function() {
               <span>${tweetObj.user.handle}</span>
             </div>
             <span class="tweet_body">
-             ${tweetObj.content.text}
+             ${safeHTML}
             </span>
             <hr class="footer_break"/>
             <footer class="article-footer">
@@ -98,6 +102,12 @@ $(document).ready(function() {
     .catch(function(error) {
       colsole.log("ERROR", error)
     })
+  };
+
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
   };
 
   renderTweets(data);
