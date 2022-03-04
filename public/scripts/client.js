@@ -5,7 +5,7 @@
  */
 $(document).ready(function() {
   const error = $("#error");
-  //error.hide();
+  error.hide();
   const newTweetForm = $("#new-tweet-form");
 
   $.ajax({
@@ -22,13 +22,13 @@ $(document).ready(function() {
   newTweetForm.on("submit", function(event) {
     event.preventDefault();
     const serializedForm = $(this).serialize();
-    const MAX_TWEET_LENGTH = 140;
+    const MAX_TWEET_LENGTH = 14;
     const textLength = $("#tweet-text").val().length;
     if (textLength > MAX_TWEET_LENGTH) {
-      return $(".error-message").html('Exceeded number of characters');
+      return $("#error").slideDown("slow").html('Exceeded number of characters');
     }
     if (!textLength) {
-      return $(".error-message").html('Please enter a tweet before submitting');     
+      return $("#error").slideDown("slow").html('Please enter a tweet before submitting');     
     }
       $.ajax({
         type: 'POST',
@@ -36,6 +36,7 @@ $(document).ready(function() {
         data: serializedForm
       })
       .then(function(data) {
+        error.hide();
         loadTweets();
       });
       $("#tweet-text").val("");
