@@ -5,7 +5,7 @@
  */
 $(document).ready(function() {
   const error = $("#error");
-  error.hide();
+  error.hide(); // hidden error until it is triggered to show
   const newTweetForm = $("#new-tweet-form");
 
   $.ajax({
@@ -24,10 +24,10 @@ $(document).ready(function() {
     const serializedForm = $(this).serialize();
     const MAX_TWEET_LENGTH = 140;
     const textLength = $("#tweet-text").val().length;
-    if (textLength > MAX_TWEET_LENGTH) {
+    if (textLength > MAX_TWEET_LENGTH) { // if someone is too verbose
       return $("#error").slideDown("slow").html('Exceeded number of characters');
     }
-    if (!textLength) {
+    if (!textLength) { // if empty 'tweet' is submitted
       return $("#error").slideDown("slow").html('Please enter a tweet before submitting');     
     }
       $.ajax({
@@ -35,19 +35,12 @@ $(document).ready(function() {
         url: '/tweets',
         data: serializedForm
       })
-      .then(function(data) {
+      .then(function(data) { // hide previous error upon a successful tweet submission
         error.hide();
         loadTweets();
       });
-      $("#tweet-text").val("");
-      $(".counter").html("140");
-      // .catch(function(error) {
-
-      //   //console.log("ERROR", error);
-      // })
-
- 
-
+      $("#tweet-text").val(""); // re-set text-area to an empty value
+      $(".counter").html("140"); // re-set character counter to 140
   })
 
 
@@ -86,10 +79,8 @@ $(document).ready(function() {
     const container = $("#tweets").empty();
     for (const tweet of tweets) {
       let element = createTweetElement(tweet);
-      container.prepend(element);
-      
-    }
-    
+      container.prepend(element);      
+    }    
   };
 
   const loadTweets = function() {
@@ -105,7 +96,7 @@ $(document).ready(function() {
     })
   };
 
-  const escape = function (str) {
+  const escape = function (str) { // for security to prevent js hacking
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
@@ -115,8 +106,5 @@ $(document).ready(function() {
 
   const $tweet = createTweetElement(data);
 
-  console.log($tweet); // to see what it looks like
 $('#tweets-container').append($tweet);
-  //console.log(newTweetForm);
-  //console.log(error);
 });
