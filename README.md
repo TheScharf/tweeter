@@ -1,8 +1,13 @@
 # Tweeter Project
 
-Tweeter is a simple, single-page Twitter clone.
+Are you an individual who is simply bursting with whitty things to say?
+Do you enjoy sharing the gift of yourself and your thoughts with strangers and friends alike?
+Is your day measured by the various one-liners and catch-phrases that pop out of your brain?
+Have I got an app for you!
+TWEETER is what's happening now. On tweeter you can anonymously (or not) regail the wide world with your quick responses, interesting factoids, and little tidbits of wisdom. You can like and comment on the contributions of others, interacting and creating a custom tailored community to enjoy.
 
-This repository is the starter code for the project: Students will fork and clone this repository, then build upon it to practice their HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express back-end skills.
+(Tweeter is a simple, single-page Twitter clone.)
+
 
 ## Getting Started
 
@@ -13,6 +18,7 @@ This repository is the starter code for the project: Students will fork and clon
 4. Go to <http://localhost:8080/> in your browser.
 
 ## Dependencies
-
+- body-parser
+- chance
 - Express
 - Node 5.10.x or above
