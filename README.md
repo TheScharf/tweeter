@@ -10,9 +10,9 @@ TWEETER is what's happening now. On tweeter you can anonymously (or not) regail 
 
 ## Screenshots
 
-!["Desktop view of the app"] (https://github.com/TheScharf/tweeter/blob/master/docs/desktop-view.png?raw=true)
+!["Desktop view of the app"] https://github.com/TheScharf/tweeter/blob/master/docs/desktop-view.png?raw=true
 
-!["Tablet view of the app"] (https://github.com/TheScharf/tweeter/blob/master/docs/tablet-view.png?raw=true)
+!["Tablet view of the app"] https://github.com/TheScharf/tweeter/blob/master/docs/tablet-view.png?raw=true
 
 ## Dependencies
 - body-parser
