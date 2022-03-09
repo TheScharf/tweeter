@@ -22,7 +22,7 @@ $(document).ready(function() {
   newTweetForm.on("submit", function(event) {
     event.preventDefault();
     const serializedForm = $(this).serialize();
-    const MAX_TWEET_LENGTH = 14;
+    const MAX_TWEET_LENGTH = 140;
     const textLength = $("#tweet-text").val().length;
     if (textLength > MAX_TWEET_LENGTH) {
       return $("#error").slideDown("slow").html('Exceeded number of characters');

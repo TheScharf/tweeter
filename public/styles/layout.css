@@ -37,3 +37,22 @@ body {
   align-items: center;
   background-color: wheat;
 }
+
+
+@media only screen and (min-width: 1024px) {
+  .head-container  {
+    display: flex;
+    width: 33.3%;
+    height: 33.3%;
+    float: left;
+    margin-top: 15%;
+    margin-right: 5%;
+    margin-bottom: 10%;
+    margin-left: 5%;
+  }
+  .main-container {
+    margin-top: 10%;
+  }
+}
+
+

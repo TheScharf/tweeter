@@ -1,5 +1,5 @@
 nav {
-  background-color: rgb(79, 161, 79);
+  background-color: none;
   height: 120px;
   width: 100%;
   top: 0;
@@ -24,4 +24,19 @@ nav {
 }
 .icon_container{
   margin-left: 130px;
+}
+
+
+
+@media only screen and (min-width: 768px) {
+  nav {
+    background-color: none;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  nav {
+    background-color: rgb(79, 161, 79);
+  }
+
 }
